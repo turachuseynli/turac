@@ -1,24 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Blue from './components/Button';
+import watch from './components/a.png';
+import cofe from './components/cofe.png';
+import trc from './components/trc.jpeg';
+import img from './components/img.png';
 
 function App() {
+  const containers = [
+    { header: "watch", image: watch, description: "rolex watch", price: "500$" },
+    { header: "cofe", image: cofe, description: "coffee", price: "2$" },
+    { header: "trc", image: trc, description: "telescope", price: "100$" },
+    { header: "slm", image: img, description: "slime", price: "5$" }
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {containers.map(function (data, index) {
+        return (
+          <Blue
+            key={index}
+            header={data.header}
+            image={data.image}
+            description={data.description}
+            price={data.price}
+          />
+        );
+      })}
     </div>
   );
 }
